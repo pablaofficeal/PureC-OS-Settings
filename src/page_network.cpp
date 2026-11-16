@@ -167,7 +167,10 @@ private:
     static void clear(QLayout *layout)
     {
         while (QLayoutItem *item = layout->takeAt(0)) {
-            delete item->widget();
+            if (QWidget *gone = item->widget()) {
+                gone->hide();
+                gone->deleteLater();
+            }
             delete item;
         }
     }
