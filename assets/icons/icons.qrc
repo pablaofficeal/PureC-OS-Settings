@@ -1,0 +1,42 @@
+<RCC>
+  <qresource prefix="/icons">
+    <file alias="aspect_ratio.png">png/aspect_ratio.png</file>
+    <file alias="battery_charging_full.png">png/battery_charging_full.png</file>
+    <file alias="battery_full.png">png/battery_full.png</file>
+    <file alias="check_circle.png">png/check_circle.png</file>
+    <file alias="desktop_windows.png">png/desktop_windows.png</file>
+    <file alias="developer_board.png">png/developer_board.png</file>
+    <file alias="format_color_fill.png">png/format_color_fill.png</file>
+    <file alias="hard_drive.png">png/hard_drive.png</file>
+    <file alias="image.png">png/image.png</file>
+    <file alias="info.png">png/info.png</file>
+    <file alias="lan.png">png/lan.png</file>
+    <file alias="lock.png">png/lock.png</file>
+    <file alias="logout.png">png/logout.png</file>
+    <file alias="memory.png">png/memory.png</file>
+    <file alias="music_note.png">png/music_note.png</file>
+    <file alias="network_wifi_1_bar.png">png/network_wifi_1_bar.png</file>
+    <file alias="network_wifi_2_bar.png">png/network_wifi_2_bar.png</file>
+    <file alias="network_wifi_3_bar.png">png/network_wifi_3_bar.png</file>
+    <file alias="palette.png">png/palette.png</file>
+    <file alias="person.png">png/person.png</file>
+    <file alias="play_arrow.png">png/play_arrow.png</file>
+    <file alias="power_settings_new.png">png/power_settings_new.png</file>
+    <file alias="public.png">png/public.png</file>
+    <file alias="refresh.png">png/refresh.png</file>
+    <file alias="restart_alt.png">png/restart_alt.png</file>
+    <file alias="schedule.png">png/schedule.png</file>
+    <file alias="settings.png">png/settings.png</file>
+    <file alias="speaker.png">png/speaker.png</file>
+    <file alias="speed.png">png/speed.png</file>
+    <file alias="text_fields.png">png/text_fields.png</file>
+    <file alias="thermostat.png">png/thermostat.png</file>
+    <file alias="timer.png">png/timer.png</file>
+    <file alias="usb.png">png/usb.png</file>
+    <file alias="verified_user.png">png/verified_user.png</file>
+    <file alias="volume_off.png">png/volume_off.png</file>
+    <file alias="volume_up.png">png/volume_up.png</file>
+    <file alias="wifi.png">png/wifi.png</file>
+    <file alias="wifi_off.png">png/wifi_off.png</file>
+  </qresource>
+</RCC>

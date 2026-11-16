@@ -1,0 +1,8 @@
+Settings icons
+==============
+
+The .svg files in svg/ are Material Symbols (Rounded, filled, 48px) by Google,
+https://fonts.google.com/icons, licensed under the Apache License 2.0
+(https://www.apache.org/licenses/LICENSE-2.0). The .png files are generated
+from them by tools/gen_icons.py (white glyph on transparent background,
+tinted by the application at draw time).
