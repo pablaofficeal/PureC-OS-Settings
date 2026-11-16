@@ -158,7 +158,7 @@ void MainWindow::addSection(QVBoxLayout *layout, const QString &title)
 void MainWindow::addPage(QVBoxLayout *layout, const QString &icon, const QString &title, Page *page)
 {
     int index = m_pages.size();
-    auto *b = new QPushButton(QStringLiteral("  ") + title);
+    auto *b = new QPushButton(QStringLiteral("  ") + QString(title).replace(QLatin1Char('&'), QStringLiteral("&&")));
     b->setObjectName(QStringLiteral("nav"));
     b->setCheckable(true);
     b->setCursor(Qt::PointingHandCursor);
