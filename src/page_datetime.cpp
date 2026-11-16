@@ -2,6 +2,9 @@
 #include "sysapi.h"
 
 #include <QtCore/qdatetime.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qtimezone.h>
+#include <QtCore/qmath.h>
 #include <QtGui/qpainter.h>
 #include <QtWidgets/qgridlayout.h>
 
