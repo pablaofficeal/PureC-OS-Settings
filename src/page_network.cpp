@@ -135,7 +135,7 @@ public:
 
     void refresh() override
     {
-        sa_wifi_status st;
+        struct sa_wifi_status st;
         bool ok = sa_wifi_status(&st);
         m_connected = ok && st.connected ? QString::fromUtf8(st.ssid) : QString();
         if (!ok || !st.device) {

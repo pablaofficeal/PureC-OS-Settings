@@ -157,7 +157,7 @@ public:
 
     void refresh() override
     {
-        sa_time t;
+        struct sa_time t;
         if (!sa_time(&t))
             return;
         QDateTime local = QDateTime::fromSecsSinceEpoch(t.unix_seconds + qint64(t.tz_minutes) * 60, QTimeZone::UTC);

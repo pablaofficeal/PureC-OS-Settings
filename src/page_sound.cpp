@@ -12,7 +12,7 @@ public:
         auto *volume = new Card;
         auto *head = volume->addHeader(QStringLiteral("volume_up"), QStringLiteral("Output volume"),
                                        QStringLiteral("Applied instantly and remembered"));
-        m_badge = qobject_cast<IconBadge *>(head->itemAt(0)->widget());
+        m_badge = dynamic_cast<IconBadge *>(head->itemAt(0)->widget());
         m_percent = new QLabel;
         m_percent->setStyleSheet(QStringLiteral("font-size: 28px; font-weight: bold;"));
         head->addWidget(m_percent);
@@ -88,7 +88,7 @@ public:
 
     void refresh() override
     {
-        sa_audio st;
+        struct sa_audio st;
         if (!sa_audio(&st)) {
             m_percent->setText(QStringLiteral("--"));
             m_backend->setText(QStringLiteral("No audio device"));

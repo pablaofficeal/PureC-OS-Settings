@@ -99,7 +99,7 @@ public:
 
     void refresh() override
     {
-        sa_battery b;
+        struct sa_battery b;
         bool have = sa_battery(&b);
         m_battery->setVisible(have);
         if (have) {
@@ -112,7 +112,7 @@ public:
             QColor c = b.charging ? Theme::green : b.percent <= 15 ? Theme::red : Theme::accent;
             m_batteryBadge->setIcon(b.charging ? QStringLiteral("battery_charging_full") : QStringLiteral("battery_full"), c);
         }
-        sa_thermal t;
+        struct sa_thermal t;
         bool hot = sa_thermal(&t);
         m_thermal->setVisible(hot);
         if (hot) {
