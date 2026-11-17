@@ -7,8 +7,9 @@
 #include <unistd.h>
 
 #include "ui.h"
+#include "libc/include/purec.h"
 
-#define CONFIG "/config/appear.ini"
+#define CONFIG "appear.ini"
 #define MAX_THEMES 16
 #define MAX_WALLPAPERS 64
 
@@ -45,7 +46,10 @@ static void load(void)
     snprintf(ap.mode, sizeof(ap.mode), "stretch");
     snprintf(ap.font, sizeof(ap.font), "clean");
     ap.font_size = 8;
-    int fd = open(CONFIG, O_RDONLY);
+    char path[160];
+    if (pc_config_path(CONFIG, path, sizeof(path), false) < 0)
+        return;
+    int fd = open(path, O_RDONLY);
     if (fd < 0)
         return;
     char buf[2048];
@@ -93,11 +97,13 @@ static void sync_controls(void);
 
 static void apply(void)
 {
-    mkdir("/config", 0755);
+    char path[160];
+    if (pc_config_path(CONFIG, path, sizeof(path), true) < 0)
+        snprintf(path, sizeof(path), "/config/%s", CONFIG);
     char buf[512];
     int len = snprintf(buf, sizeof(buf), "theme=%s\nwallpaper=%s\nwallpaper_mode=%s\nfont=%s\nfont_size=%d\n", ap.theme,
                        ap.wallpaper, ap.mode, ap.font, ap.font_size);
-    int fd = open(CONFIG, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
     bool ok = fd >= 0 && write(fd, buf, (size_t)len) == len;
     if (fd >= 0)
         close(fd);
@@ -105,7 +111,9 @@ static void apply(void)
         pg_theme_reload();
         ui_toast("Appearance updated", UI_GREEN);
     } else {
-        ui_toast("Cannot write /config/appear.ini", UI_RED);
+        char msg[200];
+        snprintf(msg, sizeof(msg), "Cannot write %s", path);
+        ui_toast(msg, UI_RED);
     }
     sync_controls();
 }
