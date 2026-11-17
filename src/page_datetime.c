@@ -106,7 +106,7 @@ static struct pg_widget *build(void)
     pg_widget_set_expand(text, true, false);
     pg_widget_set_align(text, PG_ALIGN_FILL, PG_ALIGN_CENTER);
     struct pg_widget *clock = pg_hbox(8);
-    dt.time = ui_label("--:--", PGF_DIGITS, 0xFFFFFF);
+    dt.time = ui_label("00:00", PGF_DIGITS, 0xFFFFFF);
     pg_widget_add(clock, dt.time);
     dt.seconds = ui_label("--", PGF_TITLE, 0xC8CCE0);
     pg_widget_set_align(dt.seconds, PG_ALIGN_START, PG_ALIGN_END);
