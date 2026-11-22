@@ -15,7 +15,7 @@ LIBPUREC := $(LIB_DIR)/libpurec.a
 CRT0 := $(LIB_DIR)/crt0.o
 LINKER_SCRIPT := $(ROOT_DIR)/linker-userspace.ld
 
-CFLAGS := $(CPPFLAGS) -I$(ROOT_DIR)/src/libc/include/hosted -I$(LIBGUI_DIR)/include -I$(VB_DIR)/include \
+CFLAGS := $(CPPFLAGS) -I$(LIBC_DIR)/include/hosted -I$(LIBGUI_DIR)/include -I$(VB_DIR)/include \
 	$(USER_CFLAGS) -O2 -Wall -Wextra $(DEPFLAGS)
 
 OBJECTS := $(patsubst src/%.c,$(OBJ)/%.o,$(wildcard src/*.c))
@@ -38,7 +38,7 @@ $(LIBVB):
 	$(MAKE) -C $(VB_DIR) ROOT_DIR=$(ROOT_DIR)
 
 $(CRT0) $(LIBPUREC):
-	$(MAKE) -C $(ROOT_DIR)/src/libc
+	$(MAKE) -C $(LIBC_DIR)
 
 PKG_FILE := $(OUT)/$(NAME)-$(VERSION)-$(PKGREL)-x86_64.pkg.tar.gz
 SIGN_KEY ?= $(HOME)/.config/purec-pkg/signing.pem
